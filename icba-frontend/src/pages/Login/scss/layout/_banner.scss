@@ -1,0 +1,148 @@
+.banner {
+    background-image: url('../images/banner.jpg');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-position: center;
+}
+
+.h-banner {
+    min-height: 100vh;
+    &-text {
+        color: #fafafa;
+        font-size: 24px;
+    }
+}
+
+.journey-btn-wrap {
+    margin-top: 60px;
+}
+
+.contact-banner {
+    height: 100vh;
+    background-image: url('../images/contact-banner.jpg');
+    align-items: flex-end;
+}
+
+.course-banner {
+    background-image: url('../images/course-banner.jpg');
+    height: 100vh;
+    flex-direction: column;
+    .banner-content {
+        margin-top: 80px;
+    }
+}
+
+.foundation-banner {
+    background-color: #14272D;
+    .banner-title {
+        font-size: 80px;
+        font-weight: 700;
+        letter-spacing: 5px;
+    }
+    .word-1 {
+        color: #1EE556;
+        font-size: 80px;
+        font-weight: 700;
+        letter-spacing: 5px;
+        display: block;
+    }
+    .word-2 {
+        color: #F00;
+        display: block;
+    }
+}
+
+.gs-banner {
+    height: 100vh;
+    background-image: url('../images/foundation-course/gs-banner.jpg');
+}
+
+.cac-banner {
+    background-image: url('../images/cac-banner.jpg');
+}
+
+.ga-banner {
+    background-image: url('../images/foundation-course/ga-banner.jpg');
+}
+
+.agri-banner {
+    background-image: url('../images/foundation-course/agri-banner.jpg');
+}
+
+.agri-banner {
+    background-image: url('../images/foundation-course/agri-banner.jpg');
+}
+
+.ab-banner {
+    background-image: url('../images/foundation-course/ab-banner.jpg');
+}
+
+.qa-banner {
+    background-image: url('../images/quantitative-aptitude/qa-banner.jpg');
+}
+
+.el-banner {
+    background-image: url('../images/quantitative-aptitude/el-banner.jpg');
+}
+
+.reasoning-banner {
+    background-image: url('../images/quantitative-aptitude/reasoning-banner.jpg');
+}
+
+.ps-banner {
+    background-image: url('../images/agriculture/ps-banner.jpg');
+}
+
+.nrm-banner {
+    background-image: url('../images/agriculture/nrm-banner.jpg');
+}
+
+.cp-banner {
+    background-image: url('../images/agriculture/cp-banner.jpg');
+}
+
+.cprotect-banner {
+    background-image: url('../images/agriculture/cprotect-banner.jpg');
+}
+
+.ae-banner {
+    background-image: url('../images/agriculture/ae-banner.jpg');
+}
+
+.ss-banner {
+    background-image: url('../images/agriculture/ss-banner.jpg');
+}
+
+.about-banner {
+    background-image: url('../images/about-banner.jpg');
+}
+
+.admission-banner {
+    background-image: url('../images/admission-banner.jpg');
+}
+
+@include media-breakpoint-down(lg) {
+    .foundation-banner {
+        text-align: center;
+        .banner-title,
+        .word-1 {
+            font-size: 30px;
+        }
+        img {
+            max-height: 200px;
+        }
+    }
+}
+
+
+/*.overlay {
+    background-color: #2a2a2a70;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}*/

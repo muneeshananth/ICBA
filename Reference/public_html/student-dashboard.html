@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png">
+    <title>ICBA - Student Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="robots" content="all, index, follow">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:domain" content="">
+    <link rel="stylesheet" type="text/css" href="css/global.css">
+    <link rel="stylesheet" href="css/sb-admin-2.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="fonts/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="slick/slick-theme.css">
+    <link rel="stylesheet" href="slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://db.onlinewebfonts.com/c/f9b9a4fce362a3a9111c138859ccb422?family=Agency+FB+V2" rel="stylesheet">
+    <link rel="stylesheet" href="vendor/simple-calendar.css">
+    <script src="vendor/jquery.simple-calendar.js"></script>
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav sidebar sidebar-dark accordion pt-5" id="accordionSidebar">
+            <!-- Divider -->
+            <hr class="sidebar-divider mb-5">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Attendance</span></a>
+            </li>
+            <!-- Heading -->
+            <!-- Nav Item - Pages Collapse Menu -->
+
+
+            <!-- Nav Item - Utilities Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Test Report</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Analytical Progress</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Study Material</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>ICBA Daily</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw"></i>
+                    <span>Logout</span></a>
+            </li>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <div>
+                        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                            <img src="images/logo.svg" alt="">
+                        </a>
+                    </div>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle h-profile-nav" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline  h-student-name">KISHORE MUTHU M</span>
+                                <img class="img-profile rounded-circle" src="images/profile/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i> Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> Settings
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <div class="dash-card mb-2">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-4">
+                                        <img class="profile-pic img-fluid" src="images/profile/profile.png" alt="">
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <h2>KISHORE MUTHU M</h2>
+                                        <h4>ID: ICBANR23001</h4>
+                                        <h4>Email id: abc@gmail.com</h4>
+                                        <h4>Mob No: 9874524589</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="dash-card dash-card-student mb-1 mb-md-0">
+                                        <h6 class="dash-card-heading">Courses</h6>
+                                        <h3 class="dash-card-name">Nourishing Roots</h3>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="dash-card dash-card-student mb-1 mb-md-0">
+                                        <h6 class="dash-card-heading">Attendance</h6>
+                                        <h3 class="dash-card-name">75%</h3>
+                                        <a class="btn btn-outline-primary" href="">View</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="dash-card dash-card-student mb-1 mb-md-0">
+                                        <h6 class="dash-card-heading">Overall Progress</h6>
+                                        <h3 class="dash-card-name">80%</h3>
+                                        <a class="btn btn-outline-primary" href="">View</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="dash-card dash-card-student">
+                                <div class="card flex-fill comman-shadow">
+                                    <div class="card-body">
+                                        <div id="calendar-doctor" class="calendar-container">
+                                            <div class="calendar">
+                                                <header>
+                                                    <h2 class="month">july
+                                                        <div class="year">2023</div>
+                                                    </h2>
+                                                    <a class="simple-calendar-btn btn-prev" href="#"></a>
+                                                    <a class="simple-calendar-btn btn-next" href="#"></a>
+                                                </header>
+                                                <div class="event-container" style="display: none;">
+                                                    <div class="close"></div>
+                                                    <div class="event-wrapper"></div>
+                                                </div>
+                                                <div class="event-container" style="display: none;">
+                                                    <div class="close"></div>
+                                                    <div class="event-wrapper"></div>
+                                                </div>
+                                                <div class="event-container" style="display: none;">
+                                                    <div class="close"></div>
+                                                    <div class="event-wrapper"></div>
+                                                </div>
+                                                <div class="event-container" style="display: none;">
+                                                    <div class="close"></div>
+                                                    <div class="event-wrapper"></div>
+                                                </div>
+                                                <div class="event-container" style="display: none;">
+                                                    <div class="close"></div>
+                                                    <div class="event-wrapper"></div>
+                                                </div>
+                                                <div class="event-container" style="display: none;">
+                                                    <div class="close"></div>
+                                                    <div class="event-wrapper"></div>
+                                                </div>
+                                                <div class="event-container" style="display: none;">
+                                                    <div class="close"></div>
+                                                    <div class="event-wrapper"></div>
+                                                </div>
+                                                <div class="event-container" style="display: none;">
+                                                    <div class="close"></div>
+                                                    <div class="event-wrapper"></div>
+                                                </div>
+                                                <div class="event-container" style="display: none;">
+                                                    <div class="close"></div>
+                                                    <div class="event-wrapper"></div>
+                                                </div>
+                                                <table>
+                                                    <thead>
+                                                        <td>sun</td>
+                                                        <td>mon</td>
+                                                        <td>tue</td>
+                                                        <td>wed</td>
+                                                        <td>thu</td>
+                                                        <td>fri</td>
+                                                        <td>sat</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-06-24T18:30:00.000Z">25</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-06-26T06:30:00.000Z">26</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-06-27T06:30:00.000Z">27</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-06-28T06:30:00.000Z">28</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-06-29T06:30:00.000Z">29</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-06-30T06:30:00.000Z">30</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-01T06:30:00.000Z">1</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-02T06:30:00.000Z">2</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-03T06:30:00.000Z">3</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-04T06:30:00.000Z">4</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-05T06:30:00.000Z">5</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-06T06:30:00.000Z">6</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-07T06:30:00.000Z">7</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-08T06:30:00.000Z">8</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-09T06:30:00.000Z">9</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-10T06:30:00.000Z">10</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-11T06:30:00.000Z">11</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-12T06:30:00.000Z">12</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-13T06:30:00.000Z">13</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-14T06:30:00.000Z">14</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-15T06:30:00.000Z">15</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-16T06:30:00.000Z">16</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-17T06:30:00.000Z">17</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-18T06:30:00.000Z">18</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-19T06:30:00.000Z">19</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-20T06:30:00.000Z">20</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-21T06:30:00.000Z">21</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-22T06:30:00.000Z">22</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-23T06:30:00.000Z">23</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-24T06:30:00.000Z">24</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-25T06:30:00.000Z">25</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-26T06:30:00.000Z">26</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-27T06:30:00.000Z">27</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-28T06:30:00.000Z">28</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-29T06:30:00.000Z">29</div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-30T06:30:00.000Z">30</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day disabled" data-date="2023-07-31T06:30:00.000Z">31</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-08-01T06:30:00.000Z">1</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-08-02T06:30:00.000Z">2</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-08-03T06:30:00.000Z">3</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-08-04T06:30:00.000Z">4</div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="day wrong-month disabled" data-date="2023-08-05T06:30:00.000Z">5</div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="mt-2">
+
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+
+        <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>

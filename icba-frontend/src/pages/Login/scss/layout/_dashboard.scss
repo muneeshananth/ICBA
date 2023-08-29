@@ -1,0 +1,210 @@
+#wrapper {
+    display: flex;
+    #content-wrapper {
+        background-color: $gray-100;
+        width: 100%;
+        overflow-x: hidden;
+        #content {
+            flex: 1 0 auto;
+        }
+    }
+}
+
+.topbar {
+    background-color: #fff;
+}
+
+.sidebar-brand {
+    padding: 16px 0;
+    img {
+        height: 40px;
+    }
+}
+
+.h-student-name {
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.dashboard-header {
+    border-radius: 12px;
+    background: linear-gradient(106deg, #045DE9 0%, #09C6F9 100%);
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.img-profile {
+    height: 32px;
+}
+
+.h-profile-nav {
+    display: flex;
+    align-items: center;
+}
+
+.recharge-list {
+    text-align: center;
+    display: inline-block;
+}
+
+.icon-wrap {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    i {
+        color: $primary;
+        font-size: 30px;
+    }
+}
+
+.dash-card {
+    border-radius: 16px;
+    background: #fff;
+    padding: 24px;
+    width: 100%;
+    h2 {
+        font-weight: 700;
+    }
+    .img-wrap {
+        color: #1476FF;
+        font-size: 100px;
+        margin-left: auto;
+    }
+    &-1 {
+        background-color: #0691F1;
+        .img-wrap {
+            color: #0E9CFF;
+        }
+    }
+    &-2 {
+        background-color: #08B5F6;
+        .img-wrap {
+            color: #05A0DB;
+        }
+    }
+    &-head-1 {
+        font-size: 20px;
+        font-weight: 400;
+        margin-bottom: 24px;
+    }
+    &-title {
+        color: #FFF;
+        font-size: 32px;
+        font-weight: 700;
+    }
+    &-bottom-text {
+        color: #BBD9FF;
+        font-size: 16px;
+    }
+}
+
+.dash-card-student {
+    min-height: 170px;
+    .dash-card-heading {
+        color: $primary;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .dash-card-name {
+        font-weight: 700;
+    }
+}
+
+.dash-student-course {
+    color: $primary;
+    font-weight: 700;
+}
+
+.table {
+    thead th {
+        color: #A8A8BD;
+        font-size: 16px;
+        font-weight: 400;
+        border-bottom: none;
+    }
+    td {
+        color: #16161D;
+        span {
+            color: #359742;
+            border-radius: 30px;
+            background: #D9F2DD;
+            padding: 6px 12px;
+        }
+    }
+}
+
+.profile-sidebar {
+    background-color: #fff;
+    padding: 8px 0;
+    .nav-link.active,
+    .show>.nav-link {
+        background-color: #F5F7FB;
+        color: $primary;
+        border-right: 5px solid $primary;
+    }
+    .nav-link {
+        color: #797979;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 16px 24px;
+        display: flex;
+        align-items: center;
+        i {
+            margin-right: 20px;
+            font-size: 20px;
+        }
+    }
+}
+
+.dash-profile-tab {
+    .btn-lg {
+        font-size: 16px;
+    }
+    label {
+        display: block;
+    }
+    input[type="file"] {
+        display: none;
+    }
+    .custom-file-upload {
+        border: 1px solid $primary;
+        color: $primary;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        &:hover {
+            color: #fff;
+            background-color: $primary;
+        }
+    }
+    .form-control {
+        &:focus {
+            background-color: #F5F7FB;
+            border-color: $primary;
+            box-shadow: none;
+        }
+    }
+}
+
+.profile-head {
+    display: flex;
+    align-items: center;
+    .profile-pic {
+        max-height: 150px;
+    }
+}
+
+@include media-breakpoint-down(md) {
+    .topbar {
+        background-color: $primary;
+    }
+}

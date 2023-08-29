@@ -1,0 +1,29 @@
+.section-space {
+    padding: 70px 0;
+}
+
+.section-bottom-space {
+    padding-bottom: 80px;
+}
+
+.bg-light {
+    background-color: #F5F7FA !important;
+}
+
+.relative {
+    position: relative;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+@include media-breakpoint-down(md) {
+    .section-space {
+        padding: 60px 0;
+    }
+}

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="ICBA" id="Project-1843" database="MySql" >
+	<schema name="icba" >
+		<table name="attendance_status" prior="tbl_2" >
+			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="status" type="BOOLEAN" jt="16" mandatory="y" />
+			<index name="pk_attendance_status" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="authentication" prior="a" >
+			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="icba_id" type="VARCHAR" length="100" jt="12" mandatory="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="password" type="VARCHAR" length="100" jt="12" mandatory="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="role" type="INT" jt="4" mandatory="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<index name="pk_authentication" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_authentication" to_schema="icba" to_table="student_details" >
+				<fk_column name="icba_id" pk="icba_id" />
+			</fk>
+			<fk name="fk_authentication_roles" to_schema="icba" to_table="roles" >
+				<fk_column name="role" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="course_subject" prior="tbl_2" >
+			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="course_id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="subject_id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<index name="pk_course_subject" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_course_subject_courses" to_schema="icba" to_table="courses" >
+				<fk_column name="course_id" pk="id" />
+			</fk>
+			<fk name="fk_course_subject_subjects" to_schema="icba" to_table="subjects" >
+				<fk_column name="subject_id" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="courses" prior="course_table" >
+			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="course_id" type="VARCHAR" length="50" jt="12" mandatory="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="course_name" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_course_table" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="unq_course_table_course_id" unique="UNIQUE_KEY" >
+				<column name="course_id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="roles" prior="role" >
+			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="roles" type="VARCHAR" length="100" jt="12" mandatory="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<index name="pk_roles" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="student_attendance" prior="tbl_2" >
+			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="date" type="DATE" jt="91" mandatory="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+			</column>
+			<column name="icba_id" type="VARCHAR" length="100" jt="12" mandatory="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="attendance_status" prior="attendance_id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<index name="pk_student_attendance" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<fk name="fk_student_attendance" to_schema="icba" to_table="student_details" >
+				<fk_column name="icba_id" pk="icba_id" />
+			</fk>
+			<fk name="fk_student_attendance_status" to_schema="icba" to_table="attendance_status" >
+				<fk_column name="attendance_status" pk="id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="student_details" prior="student" spec="" >
+			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="icba_id" type="VARCHAR" length="50" jt="12" mandatory="y" />
+			<column name="name" type="VARCHAR" length="100" jt="12" mandatory="y" />
+			<column name="email" type="VARCHAR" length="100" jt="12" />
+			<column name="phone" type="BIGINT" jt="-5" mandatory="y" unsigned="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="course_id" type="VARCHAR" length="100" jt="12" mandatory="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<index name="pk_student_details" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="unq_student_details_icba_id" unique="UNIQUE_KEY" >
+				<column name="icba_id" />
+			</index>
+			<fk name="course_id" to_schema="icba" to_table="courses" >
+				<fk_column name="course_id" pk="course_id" />
+			</fk>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="subjects" prior="subject_table" >
+			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
+				<identity><![CDATA[AUTO_INCREMENT]]></identity>
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="subject_id" type="VARCHAR" length="50" jt="12" mandatory="y" >
+				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
+			</column>
+			<column name="subject_name" type="VARCHAR" length="100" jt="12" />
+			<index name="pk_subject_table" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<options><![CDATA[engine=InnoDB]]></options>
+		</table>
+		<table name="tbl" />
+		<table name="tbl_0" />
+		<table name="tbl_1" />
+	</schema>
+	<layout name="Default Layout" id="Layout-1292" show_relation="columns" >
+		<entity schema="icba" name="attendance_status" color="C1D8EE" x="624" y="368" />
+		<entity schema="icba" name="authentication" color="C1D8EE" x="48" y="256" />
+		<entity schema="icba" name="course_subject" color="C1D8EE" x="608" y="208" />
+		<entity schema="icba" name="courses" color="C1D8EE" x="336" y="48" />
+		<entity schema="icba" name="roles" color="C1D8EE" x="288" y="416" />
+		<entity schema="icba" name="student_attendance" color="C1D8EE" x="288" y="240" />
+		<entity schema="icba" name="student_details" color="C1D8EE" x="48" y="48" />
+		<entity schema="icba" name="subjects" color="C1D8EE" x="592" y="48" />
+	</layout>
+</project>

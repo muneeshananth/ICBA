@@ -1,0 +1,65 @@
+a {
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+    font-family: "Agency FB V2";
+    src: url("font/Web Fonts/f9b9a4fce362a3a9111c138859ccb422.eot");
+    src: url("font/Web Fonts/f9b9a4fce362a3a9111c138859ccb422.eot?#iefix")format("embedded-opentype"), url("font/Web Fonts/f9b9a4fce362a3a9111c138859ccb422.woff")format("woff"), url("font/Web Fonts/f9b9a4fce362a3a9111c138859ccb422.woff2")format("woff2"), url("font/Web Fonts/f9b9a4fce362a3a9111c138859ccb422.ttf")format("truetype"), url("font/Web Fonts/f9b9a4fce362a3a9111c138859ccb422.svg#Agency FB V2")format("svg");
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: "Agency FB V2";
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+    width: 7px;
+}
+
+::-webkit-scrollbar:horizontal {
+    height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border: none;
+    background-color: #7c797a;
+}
+
+::-webkit-scrollbar-track {
+    background-color: rgba(239, 239, 239, 0.5);
+}
+
+.container-fluid {
+    padding: 0 80px;
+}
+
+ul {
+    padding-inline-start: 0;
+    list-style: none;
+}
+
+hr {
+    border: 1px solid #cdcdcd2b;
+}
+
+@include media-breakpoint-down(lg) {
+    body {
+        font-size: 15px;
+    }
+    .container-fluid {
+        padding: 0 16px;
+    }
+}

@@ -1,0 +1,218 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    padding: 16px 0;
+    .logo {
+        height: 50px;
+    }
+    .btn-light {
+        margin-left: 40px;
+    }
+    .navbar {
+        .navbar-toggler {
+            padding: 0;
+            &-icon {
+                color: #fff;
+                height: auto;
+            }
+        }
+    }
+    .close {
+        @include display-flex-center;
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border-radius: 50%;
+        position: absolute;
+        top: 32px;
+        right: 24px;
+        color: #a2a2a2;
+        -webkit-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        &:hover,
+        &:focus {
+            background-color: #333;
+            text-decoration: none;
+        }
+        i {
+            font-weight: 600;
+        }
+    }
+}
+
+.course-header {
+    background-color: #032646;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    padding: 12px 0;
+    .back-btn {
+        position: static;
+        color: #fff;
+        i {
+            font-size: 32px;
+        }
+    }
+    &-details {
+        display: flex;
+        align-items: center;
+        .logo-wrap {
+            margin-left: auto;
+            display: inline-block;
+        }
+    }
+}
+
+.foundation-header {
+    position: static;
+    background: rgba(217, 217, 217, 0.30);
+    .back-btn {
+        color: #063915;
+    }
+}
+
+.cd-header {
+    background: rgba(217, 217, 217, 0.30);
+    position: fixed;
+    .back-btn {
+        color: #fff;
+    }
+    .back--btn {
+        color: #063915;
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+.cd-heading {
+    color: #fff;
+    font-size: 50px;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 50%;
+}
+
+.cd--heading {
+    color: #063915;
+}
+
+.signup-header {
+    .logo {
+        height: 75px;
+        margin-bottom: 16px;
+    }
+    h2 {
+        color: #063915;
+        font-size: 50px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        margin-bottom: 0;
+        line-height: 1;
+    }
+    h4 {
+        color: #18680B;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        margin-bottom: 0;
+        padding-bottom: 24px;
+    }
+}
+
+.back-btn {
+    color: #000;
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: inline-flex;
+    align-items: center;
+    &:hover {
+        color: $primary;
+    }
+    i {
+        font-size: 24px;
+        margin-right: 24px;
+    }
+    position: relative;
+    left: 40px;
+    top: 40px;
+}
+
+.tiny {
+    position: fixed;
+    width: 350px;
+    top: 80px;
+}
+
+.top_header {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 12px 100px;
+}
+
+@include media-breakpoint-down(md) {
+    .top-header-content {
+        padding: 8px 0;
+    }
+    .top-header-content-wrap {
+        display: none;
+    }
+    .top-header::after {
+        display: none;
+    }
+    .header {
+        padding: 4px 0;
+        .btn-light {
+            margin-left: 0;
+            font-size: 24px;
+        }
+    }
+    .header .logo {
+        height: 40px;
+    }
+    .back-btn {
+        left: 16px;
+        top: 16px;
+        font-size: 20px;
+        i {
+            font-size: 16px;
+            margin-right: 12px;
+        }
+    }
+    .signup-header {
+        .logo {
+            height: 50px;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        h4 {
+            font-size: 16px;
+        }
+    }
+    .register-page .signup-header {
+        font-size: 40px;
+    }
+    .cd-heading {
+        font-size: 24px;
+        top: 15px;
+    }
+    .logo {
+        height: 30px;
+    }
+}

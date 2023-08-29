@@ -1,0 +1,36 @@
+.footer {
+    background-color: $primary;
+    color: #fafafa;
+    padding: 80px 0 40px 0;
+    font-size: 14px;
+    &-link {
+        color: #fafafa;
+        font-weight: 500;
+        text-transform: uppercase;
+        padding: 8px 16px;
+        font-size: 14px;
+        &:hover {
+            color: $primary;
+        }
+    }
+    &-logo {
+        height: 80px;
+    }
+}
+
+.my-color {
+    color: #ffeb3b;
+}
+
+@include media-breakpoint-down(lg) {
+    .footer {
+        text-align: center;
+        &-link {
+            display: inline-block;
+            padding: 12px 16px;
+        }
+    }
+    .flex-m-column {
+        flex-direction: column;
+    }
+}
