@@ -1,21 +1,12 @@
 import React from "react";
-// import '../assets/css/bootstrap'
-// import '../assets/images/logo.svg'
-// import '../assets/css/bs4_customise.css'
-// import "../assets/css/global.css"
-// import "../assets/css/home.css"
-// import "../assets/fonts/style.css" 
-// import "../assets/slick/slick-theme.css"
-// import "../assets/slick/slick.css"
-import "./css/global.css"
-import "./css/bs4_customise.css"
-import './css/home.css'
-import './font/Web Fonts/f9b9a4fce362a3a9111c138859ccb422.svg'
-// import './font/Web Fonts/'
-import signin from './images/signin.png'
-import logo from './images/logo.svg' 
+import "../assets/css/global.css"
+import "../assets/css/bs4_customise.css"
+import '../assets/css/home.css'
+import signin from '../assets/images/signin.png'
+import logo from '../assets/images/logo.svg'
 
 export default function Login() {
+
     return(
         <div class='register-page'>
         <div>
@@ -58,7 +49,7 @@ export default function Login() {
                     <input className="btn-block proceed-btn" type="submit" defaultValue="Proceed" />
                   </div>
                 </form>
-                <div className="bottom-btn">Don’t you have account? <a href="register.html">Create New</a></div>
+                <div className="bottom-btn">Don’t you have account? <a href="/register">Create New</a></div>
               </div>
             </div>
           </div>
