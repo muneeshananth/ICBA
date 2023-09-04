@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="ICBA" id="Project-1843" database="MySql" >
+<project name="icba" id="Project-1843" database="MySql" >
 	<schema name="icba" >
-		<table name="attendance_status" prior="tbl_2" >
+		<table name="attendance_status" prior="tbl_2" generator_rows="100" >
 			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
 				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
 			</column>
-			<column name="status" type="BOOLEAN" jt="16" mandatory="y" />
+			<column name="status" type="VARCHAR" length="50" jt="12" mandatory="y" />
 			<index name="pk_attendance_status" unique="PRIMARY_KEY" >
 				<column name="id" />
 			</index>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
-		<table name="authentication" prior="a" >
+		<table name="authentication" prior="a" generator_rows="225" >
 			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
 				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
 			</column>
@@ -35,7 +35,7 @@
 			</fk>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
-		<table name="course_subject" prior="tbl_2" >
+		<table name="course_subject" prior="tbl_2" generator_rows="150" >
 			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
 				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
 			</column>
@@ -56,7 +56,7 @@
 			</fk>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
-		<table name="courses" prior="course_table" >
+		<table name="courses" prior="course_table" generator_rows="100" >
 			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
 				<identity><![CDATA[AUTO_INCREMENT]]></identity>
 				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
@@ -73,7 +73,7 @@
 			</index>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
-		<table name="roles" prior="role" >
+		<table name="roles" prior="role" generator_rows="100" >
 			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
 				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
 			</column>
@@ -85,7 +85,7 @@
 			</index>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
-		<table name="student_attendance" prior="tbl_2" >
+		<table name="student_attendance" prior="tbl_2" generator_rows="225" >
 			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
 				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
 			</column>
@@ -109,7 +109,7 @@
 			</fk>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
-		<table name="student_details" prior="student" spec="" >
+		<table name="student_details" prior="student" generator_rows="150" spec="" >
 			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
 				<identity><![CDATA[AUTO_INCREMENT]]></identity>
 				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
@@ -134,7 +134,7 @@
 			</fk>
 			<options><![CDATA[engine=InnoDB]]></options>
 		</table>
-		<table name="subjects" prior="subject_table" >
+		<table name="subjects" prior="subject_table" generator_rows="100" >
 			<column name="id" type="INT" jt="4" mandatory="y" unsigned="y" >
 				<identity><![CDATA[AUTO_INCREMENT]]></identity>
 				<column_options><![CDATA[ON UPDATE CURRENT_TIMESTAMP]]></column_options>
@@ -151,7 +151,9 @@
 		<table name="tbl" />
 		<table name="tbl_0" />
 		<table name="tbl_1" />
+		<table name="tbl_2" />
 	</schema>
+	<connector name="MySql" database="MySql" driver_class="com.mysql.cj.jdbc.Driver" driver_jar="mysql-connector-j-8.0.32.jar" driver_desc="Standard" host="localhost" port="3306" user="root" passwd="QWRtaW5AMTIz" useSystemProxy="false" />
 	<layout name="Default Layout" id="Layout-1292" show_relation="columns" >
 		<entity schema="icba" name="attendance_status" color="C1D8EE" x="624" y="368" />
 		<entity schema="icba" name="authentication" color="C1D8EE" x="48" y="256" />
@@ -161,5 +163,86 @@
 		<entity schema="icba" name="student_attendance" color="C1D8EE" x="288" y="240" />
 		<entity schema="icba" name="student_details" color="C1D8EE" x="48" y="48" />
 		<entity schema="icba" name="subjects" color="C1D8EE" x="592" y="48" />
+		<script name="ICBA_initial_script" id="Editor-1b4" language="SQL" >
+			<string><![CDATA[CREATE  TABLE icba.attendance_status ( 
+	id                   INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP   PRIMARY KEY,
+	`status`             VARCHAR(50)  NOT NULL     
+ ) engine=InnoDB;
+
+CREATE  TABLE icba.courses ( 
+	id                   INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP AUTO_INCREMENT  PRIMARY KEY,
+	course_id            VARCHAR(50)  NOT NULL  ON UPDATE CURRENT_TIMESTAMP   ,
+	course_name          VARCHAR(100)       ,
+	CONSTRAINT unq_course_table_course_id UNIQUE ( course_id ) 
+ ) engine=InnoDB;
+
+CREATE  TABLE icba.roles ( 
+	id                   INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP   PRIMARY KEY,
+	roles                VARCHAR(100)  NOT NULL  ON UPDATE CURRENT_TIMESTAMP   
+ ) engine=InnoDB;
+
+CREATE  TABLE icba.student_details ( 
+	id                   INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP AUTO_INCREMENT  PRIMARY KEY,
+	icba_id              VARCHAR(50)  NOT NULL     ,
+	name                 VARCHAR(100)  NOT NULL     ,
+	email                VARCHAR(100)       ,
+	phone                BIGINT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP   ,
+	course_id            VARCHAR(100)  NOT NULL  ON UPDATE CURRENT_TIMESTAMP   ,
+	CONSTRAINT unq_student_details_icba_id UNIQUE ( icba_id ) 
+ ) engine=InnoDB;
+
+CREATE  TABLE icba.subjects ( 
+	id                   INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP AUTO_INCREMENT  PRIMARY KEY,
+	subject_id           VARCHAR(50)  NOT NULL  ON UPDATE CURRENT_TIMESTAMP   ,
+	subject_name         VARCHAR(100)       
+ ) engine=InnoDB;
+
+CREATE  TABLE icba.tbl ( 
+ ) ;
+
+CREATE  TABLE icba.tbl_0 ( 
+ ) ;
+
+CREATE  TABLE icba.tbl_1 ( 
+ ) ;
+
+CREATE  TABLE icba.tbl_2 ( 
+ ) ;
+
+CREATE  TABLE icba.authentication ( 
+	id                   INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP   PRIMARY KEY,
+	icba_id              VARCHAR(100)  NOT NULL  ON UPDATE CURRENT_TIMESTAMP   ,
+	password             VARCHAR(100)  NOT NULL  ON UPDATE CURRENT_TIMESTAMP   ,
+	role                 INT  NOT NULL  ON UPDATE CURRENT_TIMESTAMP   
+ ) engine=InnoDB;
+
+CREATE  TABLE icba.course_subject ( 
+	id                   INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP   PRIMARY KEY,
+	course_id            INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP   ,
+	subject_id           INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP   
+ ) engine=InnoDB;
+
+CREATE  TABLE icba.student_attendance ( 
+	id                   INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP   PRIMARY KEY,
+	`date`               DATE  NOT NULL   AUTO_INCREMENT  ,
+	icba_id              VARCHAR(100)  NOT NULL  ON UPDATE CURRENT_TIMESTAMP   ,
+	attendance_status    INT UNSIGNED NOT NULL  ON UPDATE CURRENT_TIMESTAMP   
+ ) engine=InnoDB;
+
+ALTER TABLE icba.student_details ADD CONSTRAINT course_id FOREIGN KEY ( course_id ) REFERENCES icba.courses( course_id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE icba.authentication ADD CONSTRAINT fk_authentication FOREIGN KEY ( icba_id ) REFERENCES icba.student_details( icba_id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE icba.authentication ADD CONSTRAINT fk_authentication_roles FOREIGN KEY ( role ) REFERENCES icba.roles( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE icba.course_subject ADD CONSTRAINT fk_course_subject_courses FOREIGN KEY ( course_id ) REFERENCES icba.courses( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE icba.course_subject ADD CONSTRAINT fk_course_subject_subjects FOREIGN KEY ( subject_id ) REFERENCES icba.subjects( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE icba.student_attendance ADD CONSTRAINT fk_student_attendance FOREIGN KEY ( icba_id ) REFERENCES icba.student_details( icba_id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+ALTER TABLE icba.student_attendance ADD CONSTRAINT fk_student_attendance_status FOREIGN KEY ( attendance_status ) REFERENCES icba.attendance_status( id ) ON DELETE NO ACTION ON UPDATE NO ACTION;
+]]></string>
+		</script>
 	</layout>
 </project>
