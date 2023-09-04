@@ -25,7 +25,7 @@ routes.post('/login', async (req, res) => {
       res.status(200).json({ "data": "failed" });
     } else {
       console.log("Success")
-      res.status(200).json({"data":"success"})
+      res.status(200).json({"data":`${username}`})
 
       //JWT Logic
       // Authentication successful
@@ -68,5 +68,26 @@ routes.post('/register', async (req, res) => {
   }
 });
 
+routes.get('/user', async (req, res)=>{
+
+  try{
+    const id = req.query.id
+    const studentDetails = await student_details.findOne({
+      where: {
+        icba_id: id,
+      },
+    });
+
+    res.json({data:{id:studentDetails.icba_id, name:studentDetails.name, email:studentDetails.email, phone:studentDetails.phone, dob:studentDetails.dob}})
+
+  }
+  catch{
+    res.json({failed:"failed"})
+  }
+  
+
+  
+
+})  
 
 module.exports = routes;

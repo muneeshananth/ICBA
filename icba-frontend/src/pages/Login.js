@@ -33,8 +33,8 @@ export default function Login() {
     }
     if(formData.username.length > 0 && formData.password.length > 0){
         axios.post(`${baseUrl}/login`,formData).then(res=>{
-          if(res.data.data=="success"){
-            navigate('/dashboard')
+          if(res.data.data!=="failed"){
+            navigate('/dashboard', {state:{data:res.data.data}})
           }
           else if(res.data.data=="failed"){
             toastError("Invalid Login, Try Again")

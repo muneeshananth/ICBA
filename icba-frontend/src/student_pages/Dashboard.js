@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import baseUrl from "../common/api";
 
 //Css Import
 import '../assets/css/bs4_customise.css'
@@ -24,8 +26,23 @@ import youtube from '../assets/images/youtube.png'
 import map from '../assets/images/map.png'
 import avatar from '../assets/images/profile/undraw_profile.svg'
 import profile from '../assets/images/profile/profile.png'
+import axios from "axios";
 
 export default function Dashboard(){
+
+    const location = useLocation()
+
+    const id = location.state.data
+
+    const [data, setData] = useState({})
+    
+    useEffect(()=>{
+        axios.get(`${baseUrl}/user?id=${id}`).then(res=>{
+            setData(res.data.data)
+        })
+    },[])
+
+
     return(
         <>
         {/* Page Wrapper */}
@@ -121,7 +138,7 @@ export default function Dashboard(){
                         aria-expanded="false"
                     >
                         <span className="mr-2 d-none d-lg-inline  h-student-name">
-                        KISHORE MUTHU M
+                        {data.name}
                         </span>
                         <img
                         className="img-profile rounded-circle"
@@ -170,10 +187,10 @@ export default function Dashboard(){
                             />
                         </div>
                         <div className="col-lg-4">
-                            <h2>KISHORE MUTHU M</h2>
-                            <h4>ID: ICBANR23001</h4>
-                            <h4>Email id: abc@gmail.com</h4>
-                            <h4>Mob No: 9874524589</h4>
+                            <h2>{data.name}</h2>
+                            <h4>ID: {data.id}</h4>
+                            <h4>Email id: {data.email}</h4>
+                            <h4>Mob No: {data.phone}</h4>
                         </div>
                         </div>
                     </div>
