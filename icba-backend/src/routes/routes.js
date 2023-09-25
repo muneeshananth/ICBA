@@ -12,6 +12,7 @@ const routes = express.Router();
 
 routes.post('/login', async (req, res) => {
   const { username, password } = req.body;
+  
 
   try {
     const authResult = await auth_user.findOne({
@@ -40,7 +41,6 @@ routes.post('/login', async (req, res) => {
 routes.post('/register', async (req, res) => {
   try {
     const data = req.body;
-
     // Create a new student record
     const student = await student_details.create({
       name: data.username,
@@ -60,10 +60,10 @@ routes.post('/register', async (req, res) => {
     });
 
     // OTP Logic
-
-    res.status(200).json({ data: 'success' });
+    // res.status(200).json({ "data" : });
+    res.json({data:data.icba_id})
   } catch (error) {
-    console.error('Error inserting student details:', error);
+    console.log(error)
     res.status(200).json({ data: 'failed' });
   }
 });

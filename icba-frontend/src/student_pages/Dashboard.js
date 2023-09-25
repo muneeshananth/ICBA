@@ -32,13 +32,18 @@ export default function Dashboard(){
 
     const location = useLocation()
 
-    const id = location.state.data
+    const id = location.state?.data
 
     const [data, setData] = useState({})
     
     useEffect(()=>{
+        console.log(id)
         axios.get(`${baseUrl}/user?id=${id}`).then(res=>{
-            setData(res.data.data)
+            if(!res){
+                return 0
+            }
+            console.log(res)
+            setData(res?.data?.data)
         })
     },[])
 
@@ -95,7 +100,7 @@ export default function Dashboard(){
                 </a>
             </li>
             <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="/login">
                 <i className="fas fa-sign-out-alt fa-sm fa-fw" />
                 <span>Logout</span>
                 </a>
@@ -138,7 +143,7 @@ export default function Dashboard(){
                         aria-expanded="false"
                     >
                         <span className="mr-2 d-none d-lg-inline  h-student-name">
-                        {data.name}
+                        {data?.name?.toUpperCase()}
                         </span>
                         <img
                         className="img-profile rounded-circle"
@@ -187,10 +192,10 @@ export default function Dashboard(){
                             />
                         </div>
                         <div className="col-lg-4">
-                            <h2>{data.name}</h2>
-                            <h4>ID: {data.id}</h4>
-                            <h4>Email id: {data.email}</h4>
-                            <h4>Mob No: {data.phone}</h4>
+                            <h2>{data?.name?.toUpperCase()}</h2>
+                            <h4>ID: {data?.id}</h4>
+                            <h4>Email id: {data?.email}</h4>
+                            <h4>Mob No: {data?.phone}</h4>
                         </div>
                         </div>
                     </div>

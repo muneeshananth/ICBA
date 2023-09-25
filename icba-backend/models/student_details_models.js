@@ -7,18 +7,18 @@ const sql = require('../config/config.js')
 const student_details = sql.define('student_details', {
   id:{
     type: DataTypes.INTEGER,
-    allowNull:false,
+    allowNull:true,
     primaryKey: true,
     autoIncrement: true
   },
   icba_id: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true, 
   },
   name: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true, 
   },
   email: {
     type:DataTypes.STRING,
@@ -43,12 +43,12 @@ const student_details = sql.define('student_details', {
   createdAt: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW, // Set the default value to the current timestamp
-    allowNull: false
+    allowNull: true
   },
   updatedAt: {
     type: DataTypes.DATE,
     defaultValue: DataTypes.NOW, // Set the default value to the current timestamp
-    allowNull: false
+    allowNull: true
   },
 },{
   tableName: 'student_details'

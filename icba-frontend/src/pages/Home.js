@@ -44,7 +44,8 @@ export default function Home(){
                         aria-haspopup="true"
                         aria-expanded="false"
                     >
-                        Resources <i className="icon-down-arrow icon" />
+                        Resources 
+                        <i className="icon-down-arrow icon" />
                     </a>
                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a className="dropdown-item" href="#">

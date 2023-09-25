@@ -43,12 +43,19 @@ export default function Register(){
         if(formData["password"]===formData["confirm-password"]){
             console.log(formData)
             axios.post(`${baseUrl}/register`,formData).then(res=>{
-                if(res.data.data == 'success'){
-                    navigate('/dashboard')
+                if(!res){
+                    return;
                 }
-                else if(res.data.data=="failed"){
-                    toastError("Try again later ")
+                else{
+                    console.log(res.data.data)
+                    if(res?.data?.data!=="failed"){
+                        navigate('/dashboard', {state:{data:res.data.data}})
+                    }
+                    else if(res?.data?.data=="failed"){
+                        toastError("Try again later ")
+                    }
                 }
+              
             })
         }
     }
@@ -137,9 +144,9 @@ export default function Register(){
                                 />
                             </div>
                             <div className="form-group mb-3">
-                                <div className="form-group-prepend">
-                                    <i className="icon-lock form-group-text"></i>
-                                </div>
+                            <div className="form-group-prepend">
+                                <i className="fas fa-phone form-group-text"></i>
+                            </div>
                                 <input
                                     type="tel"
                                     required

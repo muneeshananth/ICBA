@@ -1,0 +1,40 @@
+User Table:
+1. ID (Primary ID)
+2. ICBA ID
+3. Name
+4. E-mail
+5. phone
+6. Course (Foreign Key)
+7. CreatedAt
+8. UpdatedAt
+
+List of Course Table:
+1. ID(Primary Key)
+2. Course Name
+3. Course ID(if there)
+
+Authentication Table:
+1. ID(Primary Key)
+2. ICBA ID
+3. Password
+4. Role(Foreign Key)
+7. CreatedAt
+8. UpdatedAt
+
+Role Table:
+1. ID(Primary Key)
+2. Roles (user, admin, super admin)
+
+Attendance status:
+1. ID(Primary Key)
+2. is_present (true / false)
+
+Student Attendance Table:(insert into student_attendance(user_id, attendance) values(1(ICBA ID), 1))
+1. ID(Primary Key)
+2. Day (auto increment - full format)
+2. ICBA ID(foreign key)
+3. attendance ID (foreign key)
+7. CreatedAt
+8. UpdatedAt
+
+Study Meterial and Daily News - "Daily Hunt folder" and "Study Material Folder"(S3 Standard)Assuming metrial accessed Frequently. Or If we not know the trend of access (s3 intelligent-tiering)
