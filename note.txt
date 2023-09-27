@@ -1,0 +1,6 @@
+hostinger creds:
+
+mysql hostname: srv429.hstgr.io
+mysqldb: u344736263_icba
+user: u344736263_root
+password: Ia3/adM]rH4

@@ -1,0 +1,4 @@
+
+1. Current Affair daily pdf.
+2. Daily ICBA(do not download).
+3. ICBA video(iframe )  -> admin input to iframe
