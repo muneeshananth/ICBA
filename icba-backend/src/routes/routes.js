@@ -5,6 +5,10 @@ const bcrypt = require('bcrypt')
 const student_details = require('../../models/student_details_models')
 const auth_user = require('../../models/auth_model')
 const jwt = require('jsonwebtoken')
+const icba_videos = require('../../models/icba_videos_model')
+
+//Orm Requirements
+const { Op } = require('sequelize');
 
 
 const routes = express.Router();
@@ -13,20 +17,25 @@ const routes = express.Router();
 routes.post('/login', async (req, res) => {
   const { username, password } = req.body;
   
+  console.log(username, password);
 
   try {
     const authResult = await auth_user.findOne({
       where: {
-        icba_id: username,
+        [Op.or]: [
+          { icba_id: username },
+          { phone: username },
+        ],
         password: password,
       },
     });
-
+    
+    // const data = {username:authResult.dataValues.icba_id, role:authResult.dataValues.role}
     if (!authResult) {
       res.status(200).json({ "data": "failed" });
     } else {
       console.log("Success")
-      res.status(200).json({"data":`${username}`})
+      res.status(200).json({data:{user:authResult.dataValues.icba_id, role:authResult.dataValues.role}})
 
       //JWT Logic
       // Authentication successful
@@ -74,20 +83,47 @@ routes.get('/user', async (req, res)=>{
     const id = req.query.id
     const studentDetails = await student_details.findOne({
       where: {
-        icba_id: id,
+        [Op.or]: [
+          { icba_id: id },
+          { phone: id },
+        ],
       },
     });
-
     res.json({data:{id:studentDetails.icba_id, name:studentDetails.name, email:studentDetails.email, phone:studentDetails.phone, dob:studentDetails.dob}})
-
   }
   catch{
     res.json({failed:"failed"})
   }
-  
 
-  
+});
 
-})  
+routes.get('/ibvideos', async(req, res)=>{
+  try{
+    const data = await icba_videos.findAll()
+    console.log(data)
+    res.json({data:data})
+  }
+  catch{
+    res.status(500).json({data:"Try Again Later"})
+  }
+})
+
+routes.post('/update_ibvideos', async(req, res)=>{
+  try{
+    const data={title:req.body.title.trim(), video_url:req.body.video_url.trim()}
+    console.log(data)
+    const response = await icba_videos.update(data,{
+      where:{
+        id:req.body.index+1
+      },
+    }).then(res=>{
+      
+    })
+    res.json({data:'success'})
+  }catch (e){
+    console.log(e)
+    res.json({data:"Internal server error"})
+  }
+})
 
 module.exports = routes;

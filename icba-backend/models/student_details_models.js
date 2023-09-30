@@ -15,6 +15,7 @@ const student_details = sql.define('student_details', {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true, 
+    
   },
   name: {
     type: DataTypes.STRING,
